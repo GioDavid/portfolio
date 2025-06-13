@@ -1,3 +1,4 @@
+"use client";
 // src/components/AboutSection.tsx
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -32,7 +33,7 @@ export default function AboutSection() {
       >
         <h2 className="text-4xl font-bold mb-4 text-indigo-400">About Me</h2>
         <p className="text-lg text-gray-300 leading-relaxed mb-4">
-          I'm a passionate Full Stack TypeScript Developer with a strong background in React, React Native, Next.js, Nest js, and Node.js.
+          I&apos;m a passionate Full Stack TypeScript Developer with a strong background in React, React Native, Next.js, Nest js, and Node.js.
           I love building modern, scalable apps that solve real problems.
         </p>
         <ul className="space-y-2 text-sm text-indigo-200">

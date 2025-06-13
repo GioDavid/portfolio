@@ -3,10 +3,9 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 import AboutSection from './about/page';
-import ExperienceTimeline from '@@/components/experience-timeline';
-import ProjectGallery from '@@/components/project-galery';
-import SkillsSection from '@@/components/skill-section';
-import ContactSection from '@@/components/contact-section';
+import ExperienceTimeline from '../components/experience-timeline';
+import SkillsSection from '../components/skill-section';
+import ContactSection from '../components/contact-section';
 
 export default function Home() {
   const [showAbout, setShowAbout] = useState(false);

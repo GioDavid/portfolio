@@ -1,3 +1,4 @@
+"use client";
 // src/components/ExperienceTimeline.tsx
 import { motion } from 'framer-motion';
 
