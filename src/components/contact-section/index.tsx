@@ -21,10 +21,10 @@ export default function ContactSection() {
 
     emailjs
       .sendForm(
-        'service_5v0xwrw',
-        'template_7m4gi11',
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
         formRef.current,
-        '3TkKUvDXIdwrOdtsf'
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ''
       )
       .then(
         () => {
