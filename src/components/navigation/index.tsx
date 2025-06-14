@@ -1,5 +1,5 @@
 "use client";
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 const navItems = [
@@ -105,9 +105,12 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button
+        <motion.button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden p-2 text-white focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 rounded-lg"
+          whileTap={{ scale: 0.95 }}
+          aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
         >
           <motion.div
             animate={isMobileMenuOpen ? "open" : "closed"}
@@ -118,63 +121,62 @@ export default function Navigation() {
                 closed: { rotate: 0, y: 0 },
                 open: { rotate: 45, y: 5 }
               }}
-              className="w-6 h-0.5 bg-white block transition-all duration-300"
+              className="w-6 h-0.5 bg-white block"
+              transition={{ duration: 0.3 }}
             />
             <motion.span
               variants={{
                 closed: { opacity: 1 },
                 open: { opacity: 0 }
               }}
-              className="w-6 h-0.5 bg-white block transition-all duration-300 my-1"
+              className="w-6 h-0.5 bg-white block my-1"
+              transition={{ duration: 0.3 }}
             />
             <motion.span
               variants={{
                 closed: { rotate: 0, y: 0 },
                 open: { rotate: -45, y: -5 }
               }}
-              className="w-6 h-0.5 bg-white block transition-all duration-300"
+              className="w-6 h-0.5 bg-white block"
+              transition={{ duration: 0.3 }}
             />
           </motion.div>
-        </button>
+        </motion.button>
       </div>
 
       {/* Mobile Menu */}
-      <motion.div
-        initial={false}
-        animate={isMobileMenuOpen ? "open" : "closed"}
-        variants={{
-          open: {
-            opacity: 1,
-            height: "auto",
-            y: 0
-          },
-          closed: {
-            opacity: 0,
-            height: 0,
-            y: -20
-          }
-        }}
-        transition={{ duration: 0.3 }}
-        className="md:hidden bg-gray-900/95 backdrop-blur-md border-b border-gray-700 overflow-hidden"
-      >
-        <div className="px-6 py-4 space-y-4">
-          {navItems.map((item) => (
-            <motion.button
-              key={item.label}
-              onClick={() => scrollToSection(item.href)}
-              className={`block w-full text-left text-sm font-medium transition-colors duration-200 ${
-                (item.href === '#' && activeSection === '') ||
-                (item.href === `#${activeSection}` && activeSection !== '')
-                  ? 'text-indigo-400'
-                  : 'text-gray-300 hover:text-white'
-              }`}
-              whileTap={{ scale: 0.95 }}
-            >
-              {item.label}
-            </motion.button>
-          ))}
-        </div>
-      </motion.div>
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-gray-900/95 backdrop-blur-md border-b border-gray-700"
+          >
+            <div className="px-6 py-4 space-y-4">
+              {navItems.map((item, index) => (
+                <motion.button
+                  key={item.label}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  onClick={() => scrollToSection(item.href)}
+                  className={`block w-full text-left py-2 text-base font-medium transition-colors duration-200 ${
+                    (item.href === '#' && activeSection === '') ||
+                    (item.href === `#${activeSection}` && activeSection !== '')
+                      ? 'text-indigo-400'
+                      : 'text-gray-300 hover:text-white'
+                  }`}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {item.label}
+                </motion.button>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 } 
