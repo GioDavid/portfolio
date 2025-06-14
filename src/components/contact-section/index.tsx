@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion } from 'framer-motion';
-import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 
 export default function ContactSection() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -82,6 +82,12 @@ export default function ContactSection() {
                 <FaEnvelope />
               </a>
             </li>
+            <li>
+              <a href="https://wa.me/593998405156" target="_blank" rel="noopener noreferrer">
+                <FaWhatsapp />
+              </a>
+            </li>
+            
           </ul>
         </motion.div>
 
