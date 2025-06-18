@@ -110,9 +110,9 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-2xl font-semibold text-indigo-300">Let's work together</h3>
+          <h3 className="text-2xl font-semibold text-indigo-300">Let&apos;s work together</h3>
           <p className="text-gray-300">
-            I'm currently open to new opportunities and collaborations. Reach out via email or connect on social media!
+            I&apos;m currently open to new opportunities and collaborations. Reach out via email or connect on social media!
           </p>
 
           <nav aria-label="Social media links">
@@ -285,7 +285,7 @@ export default function ContactSection() {
             <div id="submit-status" aria-live="polite" aria-atomic="true">
               {sent && (
                 <p className="text-green-400 text-center" role="status">
-                  Message sent successfully! I'll get back to you soon.
+                  Message sent successfully! I&apos;ll get back to you soon.
                 </p>
               )}
               {error && (

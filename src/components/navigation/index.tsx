@@ -221,7 +221,7 @@ export default function Navigation() {
         aria-label="Mobile navigation menu"
       >
         <div className="px-6 py-4 space-y-4">
-          {navItems.map((item, index) => (
+          {navItems.map((item) => (
             <motion.button
               key={item.label}
               onClick={() => scrollToSection(item.href)}

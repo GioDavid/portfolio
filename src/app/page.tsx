@@ -130,7 +130,7 @@ export default function Home() {
       </motion.div>
 
       {/* Main Content with Parallax */}
-      <main 
+      <motion.main 
         id="main-content"
         style={{ y: yContent, opacity }}
         className="relative z-10 min-h-screen text-white flex flex-col justify-center items-center p-4 pt-96"
@@ -254,7 +254,7 @@ export default function Home() {
             Download CV
           </motion.a>
         </motion.div>
-      </main>
+      </motion.main>
 
       {/* Content Sections */}
       <div className="relative z-10 bg-transparent">
