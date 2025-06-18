@@ -8,7 +8,8 @@ const navItems = [
   { label: 'Experience', href: '#experience', ariaLabel: 'Go to experience section' },
   { label: 'Services', href: '#services', ariaLabel: 'Go to services section' },
   { label: 'Skills', href: '#skills', ariaLabel: 'Go to skills section' },
-  { label: 'Contact', href: '#contact', ariaLabel: 'Go to contact section' }
+  { label: 'Contact', href: '#contact', ariaLabel: 'Go to contact section' },
+  { label: 'Blog', href: '/blog', ariaLabel: 'Go to blog page' }
 ];
 
 export default function Navigation() {
@@ -76,6 +77,12 @@ export default function Navigation() {
   const scrollToSection = (href: string) => {
     setIsMobileMenuOpen(false);
     
+    if (href.startsWith('/')) {
+      // For external links, use window.location
+      window.location.href = href;
+      return;
+    }
+
     if (href === '#') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
@@ -197,6 +204,7 @@ export default function Navigation() {
               transition={{ duration: 0.3 }}
             />
           </motion.div>
+        </button>
       </div>
 
       {/* Mobile Menu */}
