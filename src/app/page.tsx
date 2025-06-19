@@ -8,11 +8,13 @@ import ServicesSection from '../components/services-section';
 import SkillsSection from '../components/skill-section';
 import ContactSection from '../components/contact-section';
 import Navigation from '../components/navigation';
+import { useTranslation } from 'react-i18next';
 
 export default function Home() {
   const [showAbout, setShowAbout] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useTranslation('common');
   
   // Parallax scroll effects (disabled for reduced motion)
   const { scrollYProgress } = useScroll({
@@ -145,7 +147,7 @@ export default function Home() {
           className="text-center"
         >
           <h1 className="text-5xl md:text-7xl font-extrabold mb-4 text-center relative">
-            <span className="relative z-10">Giovanni Proaño</span>
+            <span className="relative z-10">{t('welcome')}</span>
             {/* Text shadow effect */}
             <motion.span
               className="absolute inset-0 text-indigo-400/20 blur-sm"
@@ -170,7 +172,7 @@ export default function Home() {
             transition={{ delay: 0.5 }}
             className="text-xl md:text-2xl text-gray-300 mb-8 text-center max-w-xl relative z-10"
           >
-            Full Stack TypeScript Developer crafting scalable web solutions with React, Next.js, and Node.
+            {t('description')}
           </motion.p>
         </motion.header>
 
@@ -241,7 +243,7 @@ export default function Home() {
             whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
             aria-label="Scroll to contact section"
           >
-            Contact Me
+            {t('contactMe')}
           </motion.button>
           <motion.a
             href="/CV DAVID PROANO SOFTWARE DEVELOPER .pdf"
@@ -251,7 +253,7 @@ export default function Home() {
             whileTap={shouldReduceMotion ? {} : { scale: 0.95 }}
             aria-label="Download Giovanni's CV as PDF"
           >
-            Download CV
+            {t('downloadCv')}
           </motion.a>
         </motion.div>
       </motion.main>

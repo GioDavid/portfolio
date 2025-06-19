@@ -1,6 +1,8 @@
 "use client";
 import { motion, useReducedMotion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useRouter, usePathname } from 'next/navigation';
 
 const navItems = [
   { label: 'Home', href: '#', ariaLabel: 'Go to home section' },
@@ -19,6 +21,13 @@ export default function Navigation() {
   const shouldReduceMotion = useReducedMotion();
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
+  const { i18n } = useTranslation();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -138,7 +147,7 @@ export default function Navigation() {
         </motion.button>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-8" role="menubar">
+        <div className="hidden md:flex items-center space-x-8" role="menubar">
           {navItems.map((item) => (
             <motion.button
               key={item.label}
@@ -163,6 +172,29 @@ export default function Navigation() {
               {item.label}
             </motion.button>
           ))}
+
+          {/* Language Switcher */}
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={() => changeLanguage('en')}
+              className={`text-sm font-medium transition-colors duration-200 p-1 rounded ${
+                i18n.language === 'en' ? 'text-indigo-400' : 'text-gray-300 hover:text-white'
+              }`}
+              aria-label="Switch to English"
+            >
+              EN
+            </button>
+            <span className="text-gray-500">/</span>
+            <button
+              onClick={() => changeLanguage('es')}
+              className={`text-sm font-medium transition-colors duration-200 p-1 rounded ${
+                i18n.language === 'es' ? 'text-indigo-400' : 'text-gray-300 hover:text-white'
+              }`}
+              aria-label="Switch to Spanish"
+            >
+              ES
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu Button */}
@@ -255,6 +287,28 @@ export default function Navigation() {
               {item.label}
             </motion.button>
           ))}
+          {/* Language Switcher for Mobile */}
+          <div className="flex items-center space-x-2 pt-4">
+            <button
+              onClick={() => changeLanguage('en')}
+              className={`text-sm font-medium transition-colors duration-200 p-1 rounded ${
+                i18n.language === 'en' ? 'text-indigo-400' : 'text-gray-300 hover:text-white'
+              }`}
+              aria-label="Switch to English"
+            >
+              EN
+            </button>
+            <span className="text-gray-500">/</span>
+            <button
+              onClick={() => changeLanguage('es')}
+              className={`text-sm font-medium transition-colors duration-200 p-1 rounded ${
+                i18n.language === 'es' ? 'text-indigo-400' : 'text-gray-300 hover:text-white'
+              }`}
+              aria-label="Switch to Spanish"
+            >
+              ES
+            </button>
+          </div>
         </div>
       </motion.div>
     </motion.nav>
