@@ -10,70 +10,33 @@ import {
   FaRocket,
   FaCheckCircle
 } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
-const services = [
-  {
-    icon: <FaCode className="text-4xl text-indigo-400" aria-hidden="true" />,
-    title: 'Full-Stack Development',
-    description: 'End-to-end web application development using React, Next.js, Node.js, and TypeScript.',
-    features: ['Custom Web Applications', 'API Development', 'Database Design', 'Performance Optimization']
-  },
-  {
-    icon: <FaMobile className="text-4xl text-indigo-400" aria-hidden="true" />,
-    title: 'Mobile Development',
-    description: 'Cross-platform mobile applications using React Native for iOS and Android.',
-    features: ['React Native Apps', 'Cross-Platform Solutions', 'Native Performance', 'App Store Deployment']
-  },
-  // {
-  //   icon: <FaCloud className="text-4xl text-indigo-400" />,
-  //   title: 'Cloud Solutions',
-  //   description: 'Scalable cloud infrastructure and deployment using Azure, Docker, and modern DevOps practices.',
-  //   features: ['Azure Cloud Services', 'Docker Containerization', 'CI/CD Pipelines', 'Scalable Architecture']
-  // },
-  {
-    icon: <FaDatabase className="text-4xl text-indigo-400" aria-hidden="true" />,
-    title: 'Database Solutions',
-    description: 'Database design, optimization, and management for PostgreSQL and MySQL systems.',
-    features: ['Database Design', 'Query Optimization', 'Data Migration', 'Performance Tuning']
-  },
-  {
-    icon: <FaCogs className="text-4xl text-indigo-400" aria-hidden="true" />,
-    title: 'Technical Consulting',
-    description: 'Architecture review, code audits, and technology stack recommendations.',
-    features: ['Architecture Review', 'Code Quality Audits', 'Technology Stack Planning', 'Best Practices Implementation']
-  },
-  {
-    icon: <FaUsers className="text-4xl text-indigo-400" aria-hidden="true" />,
-    title: 'Team Leadership',
-    description: 'Technical leadership, mentoring, and agile project management for development teams.',
-    features: ['Team Leadership', 'Technical Mentoring', 'Agile Methodologies', 'Project Management']
-  }
-];
+const iconMap: { [key: string]: React.ReactNode } = {
+  'code': <FaCode className="text-4xl text-indigo-400" aria-hidden="true" />,
+  'mobile': <FaMobile className="text-4xl text-indigo-400" aria-hidden="true" />,
+  'database': <FaDatabase className="text-4xl text-indigo-400" aria-hidden="true" />,
+  'cogs': <FaCogs className="text-4xl text-indigo-400" aria-hidden="true" />,
+  'users': <FaUsers className="text-4xl text-indigo-400" aria-hidden="true" />,
+};
 
-const processSteps = [
-  {
-    step: '01',
-    title: 'Discovery & Planning',
-    description: 'Understanding your business needs and defining project requirements'
-  },
-  {
-    step: '02',
-    title: 'Design & Architecture',
-    description: 'Creating scalable solutions and technical architecture'
-  },
-  {
-    step: '03',
-    title: 'Development & Testing',
-    description: 'Building robust applications with comprehensive testing'
-  },
-  {
-    step: '04',
-    title: 'Deployment & Support',
-    description: 'Seamless deployment and ongoing maintenance support'
-  }
-];
+interface Service {
+  iconKey: string;
+  title: string;
+  description: string;
+  features: string[];
+}
+
+interface ProcessStep {
+  step: string;
+  title: string;
+  description: string;
+}
 
 export default function ServicesSection() {
+  const { t } = useTranslation('common');
+  const services = t('services.items', { returnObjects: true }) as Service[];
+  const processSteps = t('services.process.steps', { returnObjects: true }) as ProcessStep[];
   const shouldReduceMotion = useReducedMotion();
 
   const motionProps = shouldReduceMotion 
@@ -110,9 +73,9 @@ export default function ServicesSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 id="services-heading" className="text-4xl font-bold text-indigo-400 mb-4">Services</h2>
+          <h2 id="services-heading" className="text-4xl font-bold text-indigo-400 mb-4">{t('services.title')}</h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Comprehensive software consulting services to help your business grow with modern, scalable technology solutions.
+            {t('services.description')}
           </p>
         </motion.header>
 
@@ -122,7 +85,7 @@ export default function ServicesSection() {
           role="list"
           aria-label="Services offered"
         >
-          {services.map((service, index) => (
+          {Array.isArray(services) && services.map((service, index) => (
             <motion.article
               key={service.title}
               {...motionProps}
@@ -137,7 +100,7 @@ export default function ServicesSection() {
                 className="mb-4 group-hover:scale-110 transition-transform duration-300"
                 aria-hidden="true"
               >
-                {service.icon}
+                {iconMap[service.iconKey]}
               </div>
               <h3 
                 id={`service-${index}-title`}
@@ -168,9 +131,9 @@ export default function ServicesSection() {
           aria-labelledby="process-heading"
         >
           <header className="text-center mb-12">
-            <h3 id="process-heading" className="text-3xl font-bold text-indigo-400 mb-4">My Process</h3>
+            <h3 id="process-heading" className="text-3xl font-bold text-indigo-400 mb-4">{t('services.process.title')}</h3>
             <p className="text-gray-300 max-w-2xl mx-auto">
-              A proven methodology to deliver high-quality software solutions on time and within budget.
+              {t('services.process.description')}
             </p>
           </header>
 
@@ -179,7 +142,7 @@ export default function ServicesSection() {
             role="list"
             aria-label="Development process steps"
           >
-            {processSteps.map((step, index) => (
+            {Array.isArray(processSteps) && processSteps.map((step, index) => (
               <motion.div
                 key={step.step}
                 {...motionProps}
@@ -219,9 +182,9 @@ export default function ServicesSection() {
         >
           <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-8 text-white">
             <FaRocket className="text-4xl text-white mx-auto mb-4" aria-hidden="true" />
-            <h3 id="cta-heading" className="text-2xl font-bold mb-4">Ready to Start Your Project?</h3>
+            <h3 id="cta-heading" className="text-2xl font-bold mb-4">{t('services.cta.title')}</h3>
             <p className="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
-              Let&apos;s discuss how I can help bring your ideas to life with modern, scalable technology solutions.
+              {t('services.cta.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
@@ -230,7 +193,7 @@ export default function ServicesSection() {
                 className="bg-white text-indigo-600 px-8 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600"
                 aria-label="Navigate to contact section"
               >
-                Get In Touch
+                {t('services.cta.button1')}
               </button>
               <a
                 href="/CV DAVID PROANO SOFTWARE DEVELOPER .pdf"
@@ -238,7 +201,7 @@ export default function ServicesSection() {
                 className="border border-white text-white px-8 py-3 rounded-xl font-semibold hover:bg-white hover:text-indigo-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600"
                 aria-label="Download Giovanni's CV as PDF"
               >
-                Download CV
+                {t('downloadCv')}
               </a>
             </div>
           </div>

@@ -1,39 +1,19 @@
 "use client";
 // src/components/ExperienceTimeline.tsx
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
-const experiences = [
-  {
-    title: 'Software Consultant',
-    company: 'Exit 83',
-    date: '2022 – Present',
-    description: 'Building and maintaining web applications using React, React Native, Next.js, Nest.js, and Node.js.',
-    stack: ['React', 'Next.js', 'GraphQL', 'Node.js', 'React Native', 'Nest.js', "TypeScript", "PostgreSQL", "MySQL", "Docker", "Git", "Azure Portal"],
-  },
-  {
-    title: 'Frontend Developer',
-    company: 'Banco Pichincha',
-    date: '2019 – 2022',
-    description: 'Frontend Developer of deUna app and Tech Lead of the Digital Banking Design System',
-    stack: ['React', 'Tailwind', "React Native", "TypeScript", "Jest", "Figma", "Storybook"],
-  },
-  {
-    title: 'Software Consultant',
-    company: 'Stack Builders',
-    date: '2018 – 2019',
-    description: 'Software consultant for the development of a web application for north american clients',
-    stack: ['Express', 'MongoDB', 'React', "TypeScript", "Git", "React Native", "asp.net"],
-  },
-  {
-    title: 'Frontend Developer',
-    company: 'Sumitrag',
-    date: '2014 – 2017',
-    description: 'Frontend Developer of the driving management system and tracking platforms',
-    stack: ['Polymer', "Web components", "Mocha", "Chai"] ,
-  }
-];
+interface Experience {
+  title: string;
+  company: string;
+  date: string;
+  description: string;
+  stack: string[];
+}
 
 export default function ExperienceTimeline() {
+  const { t } = useTranslation('common');
+  const experiences = t('experience.jobs', { returnObjects: true }) as Experience[];
   const shouldReduceMotion = useReducedMotion();
 
   const motionProps = shouldReduceMotion 
@@ -54,7 +34,7 @@ export default function ExperienceTimeline() {
         transition={{ duration: 0.6 }}
         className="text-4xl font-bold text-center text-indigo-400 mb-12"
       >
-        Experience
+        {t('experience.title')}
       </motion.h2>
 
       <div 

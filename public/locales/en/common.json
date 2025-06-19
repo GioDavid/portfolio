@@ -2,5 +2,120 @@
   "welcome": "Giovanni Proaño",
   "description": "Full Stack TypeScript Developer crafting scalable web solutions with React, Next.js, and Node.",
   "contactMe": "Contact Me",
-  "downloadCv": "Download CV"
+  "downloadCv": "Download CV",
+  "about": {
+    "title": "About Me",
+    "bio": "I'm a passionate Full Stack TypeScript Developer with a strong background in React, React Native, Next.js, Nest.js, and Node.js. I love building modern, scalable apps that solve real problems.",
+    "imageAlt": "Professional headshot of Giovanni Proaño, a Full Stack TypeScript Developer with dark hair wearing a casual shirt, smiling at the camera",
+    "highlightsTitle": "Key highlights about Giovanni",
+    "highlight1_bold": "6+ years",
+    "highlight1_text": "of experience in software development",
+    "highlight2_text": "Focused on",
+    "highlight2_bold": "clean code, performance & usability",
+    "highlight3_bold": "Always learning",
+    "highlight3_text": "and improving my craft",
+    "highlight4_text": "Based in",
+    "highlight4_bold": "Quito, Ecuador",
+    "highlight4_text2": ", open to remote work, hybrid, and on-site"
+  },
+  "experience": {
+    "title": "Experience",
+    "jobs": [
+      {
+        "title": "Software Consultant",
+        "company": "Exit 83",
+        "date": "2022 – Present",
+        "description": "Building and maintaining web applications using React, React Native, Next.js, Nest.js, and Node.js.",
+        "stack": ["React", "Next.js", "GraphQL", "Node.js", "React Native", "Nest.js", "TypeScript", "PostgreSQL", "MySQL", "Docker", "Git", "Azure Portal"]
+      },
+      {
+        "title": "Frontend Developer",
+        "company": "Banco Pichincha",
+        "date": "2019 – 2022",
+        "description": "Frontend Developer of deUna app and Tech Lead of the Digital Banking Design System",
+        "stack": ["React", "Tailwind", "React Native", "TypeScript", "Jest", "Figma", "Storybook"]
+      },
+      {
+        "title": "Software Consultant",
+        "company": "Stack Builders",
+        "date": "2018 – 2019",
+        "description": "Software consultant for the development of a web application for north american clients",
+        "stack": ["Express", "MongoDB", "React", "TypeScript", "Git", "React Native", "asp.net"]
+      },
+      {
+        "title": "Frontend Developer",
+        "company": "Sumitrag",
+        "date": "2014 – 2017",
+        "description": "Frontend Developer of the driving management system and tracking platforms",
+        "stack": ["Polymer", "Web components", "Mocha", "Chai"]
+      }
+    ]
+  },
+  "services": {
+    "title": "Services",
+    "description": "Comprehensive software consulting services to help your business grow with modern, scalable technology solutions.",
+    "items": [
+      {
+        "iconKey": "code",
+        "title": "Full-Stack Development",
+        "description": "End-to-end web application development using React, Next.js, Node.js, and TypeScript.",
+        "features": ["Custom Web Applications", "API Development", "Database Design", "Performance Optimization"]
+      },
+      {
+        "iconKey": "mobile",
+        "title": "Mobile Development",
+        "description": "Cross-platform mobile applications using React Native for iOS and Android.",
+        "features": ["React Native Apps", "Cross-Platform Solutions", "Native Performance", "App Store Deployment"]
+      },
+      {
+        "iconKey": "database",
+        "title": "Database Solutions",
+        "description": "Database design, optimization, and management for PostgreSQL and MySQL systems.",
+        "features": ["Database Design", "Query Optimization", "Data Migration", "Performance Tuning"]
+      },
+      {
+        "iconKey": "cogs",
+        "title": "Technical Consulting",
+        "description": "Architecture review, code audits, and technology stack recommendations.",
+        "features": ["Architecture Review", "Code Quality Audits", "Technology Stack Planning", "Best Practices Implementation"]
+      },
+      {
+        "iconKey": "users",
+        "title": "Team Leadership",
+        "description": "Technical leadership, mentoring, and agile project management for development teams.",
+        "features": ["Team Leadership", "Technical Mentoring", "Agile Methodologies", "Project Management"]
+      }
+    ],
+    "process": {
+      "title": "My Process",
+      "description": "A proven methodology to deliver high-quality software solutions on time and within budget.",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Discovery & Planning",
+          "description": "Understanding your business needs and defining project requirements"
+        },
+        {
+          "step": "02",
+          "title": "Design & Architecture",
+          "description": "Creating scalable solutions and technical architecture"
+        },
+        {
+          "step": "03",
+          "title": "Development & Testing",
+          "description": "Building robust applications with comprehensive testing"
+        },
+        {
+          "step": "04",
+          "title": "Deployment & Support",
+          "description": "Seamless deployment and ongoing maintenance support"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Start Your Project?",
+      "description": "Let's discuss how I can help bring your ideas to life with modern, scalable technology solutions.",
+      "button1": "Get In Touch"
+    }
+  }
 } 

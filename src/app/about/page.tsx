@@ -2,8 +2,10 @@
 // src/components/AboutSection.tsx
 import { motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
 
 export default function AboutSection() {
+  const { t } = useTranslation('common');
   const shouldReduceMotion = useReducedMotion();
 
   const motionProps = shouldReduceMotion 
@@ -26,7 +28,7 @@ export default function AboutSection() {
       >
         <Image
           src="/profile.jpg"
-          alt="Professional headshot of Giovanni Proaño, a Full Stack TypeScript Developer with dark hair wearing a casual shirt, smiling at the camera"
+          alt={t('about.imageAlt')}
           fill
           className="object-cover"
           priority
@@ -42,31 +44,30 @@ export default function AboutSection() {
         transition={{ duration: 0.7, delay: 0.2 }}
         className="max-w-xl text-center md:text-left"
       >
-        <h2 id="about-heading" className="text-4xl font-bold mb-4 text-indigo-400">About Me</h2>
+        <h2 id="about-heading" className="text-4xl font-bold mb-4 text-indigo-400">{t('about.title')}</h2>
         <div className="space-y-4">
           <p className="text-lg text-gray-300 leading-relaxed">
-            I&apos;m a passionate Full Stack TypeScript Developer with a strong background in React, React Native, Next.js, Nest.js, and Node.js.
-            I love building modern, scalable apps that solve real problems.
+            {t('about.bio')}
           </p>
           
           <div>
-            <h3 className="sr-only">Key highlights about Giovanni</h3>
+            <h3 className="sr-only">{t('about.highlightsTitle')}</h3>
             <ul className="space-y-2 text-sm text-indigo-200" role="list">
               <li className="flex items-start gap-2">
                 <span className="text-indigo-400 font-bold" aria-hidden="true">🚀</span>
-                <span><strong>6+ years</strong> of experience in software development</span>
+                <span><strong>{t('about.highlight1_bold')}</strong> {t('about.highlight1_text')}</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-indigo-400 font-bold" aria-hidden="true">💡</span>
-                <span>Focused on <strong>clean code, performance & usability</strong></span>
+                <span>{t('about.highlight2_text')} <strong>{t('about.highlight2_bold')}</strong></span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-indigo-400 font-bold" aria-hidden="true">🧠</span>
-                <span><strong>Always learning</strong> and improving my craft</span>
+                <span><strong>{t('about.highlight3_bold')}</strong> {t('about.highlight3_text')}</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-indigo-400 font-bold" aria-hidden="true">🌍</span>
-                <span>Based in <strong>Quito, Ecuador</strong>, open to remote work, hybrid, and on-site</span>
+                <span>{t('about.highlight4_text')} <strong>{t('about.highlight4_bold')}</strong>{t('about.highlight4_text2')}</span>
               </li>
             </ul>
           </div>

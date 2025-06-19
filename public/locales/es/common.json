@@ -2,5 +2,120 @@
   "welcome": "Giovanni Proaño",
   "description": "Desarrollador Full Stack TypeScript creando soluciones web escalables con React, Next.js y Node.",
   "contactMe": "Contáctame",
-  "downloadCv": "Descargar CV"
+  "downloadCv": "Descargar CV",
+  "about": {
+    "title": "Sobre Mí",
+    "bio": "Soy un apasionado Desarrollador Full Stack TypeScript con una sólida experiencia en React, React Native, Next.js, Nest.js y Node.js. Me encanta construir aplicaciones modernas y escalables que resuelven problemas reales.",
+    "imageAlt": "Foto profesional de Giovanni Proaño, un desarrollador Full Stack TypeScript de pelo oscuro con camisa casual, sonriendo a la cámara",
+    "highlightsTitle": "Puntos destacados sobre Giovanni",
+    "highlight1_bold": "6+ años",
+    "highlight1_text": "de experiencia en desarrollo de software",
+    "highlight2_text": "Enfocado en",
+    "highlight2_bold": "código limpio, rendimiento y usabilidad",
+    "highlight3_bold": "Siempre aprendiendo",
+    "highlight3_text": "y mejorando mi oficio",
+    "highlight4_text": "Resido en",
+    "highlight4_bold": "Quito, Ecuador",
+    "highlight4_text2": ", abierto a trabajo remoto, híbrido y presencial"
+  },
+  "experience": {
+    "title": "Experiencia",
+    "jobs": [
+      {
+        "title": "Consultor de Software",
+        "company": "Exit 83",
+        "date": "2022 – Presente",
+        "description": "Construcción y mantenimiento de aplicaciones web usando React, React Native, Next.js, Nest.js y Node.js.",
+        "stack": ["React", "Next.js", "GraphQL", "Node.js", "React Native", "Nest.js", "TypeScript", "PostgreSQL", "MySQL", "Docker", "Git", "Azure Portal"]
+      },
+      {
+        "title": "Desarrollador Frontend",
+        "company": "Banco Pichincha",
+        "date": "2019 – 2022",
+        "description": "Desarrollador Frontend de la aplicación deUna y Líder Técnico del Sistema de Diseño de la Banca Digital.",
+        "stack": ["React", "Tailwind", "React Native", "TypeScript", "Jest", "Figma", "Storybook"]
+      },
+      {
+        "title": "Consultor de Software",
+        "company": "Stack Builders",
+        "date": "2018 – 2019",
+        "description": "Consultor de software para el desarrollo de una aplicación web para clientes norteamericanos.",
+        "stack": ["Express", "MongoDB", "React", "TypeScript", "Git", "React Native", "asp.net"]
+      },
+      {
+        "title": "Desarrollador Frontend",
+        "company": "Sumitrag",
+        "date": "2014 – 2017",
+        "description": "Desarrollador Frontend del sistema de gestión de conducción y plataformas de seguimiento.",
+        "stack": ["Polymer", "Web components", "Mocha", "Chai"]
+      }
+    ]
+  },
+  "services": {
+    "title": "Servicios",
+    "description": "Servicios integrales de consultoría de software para ayudar a su negocio a crecer con soluciones tecnológicas modernas y escalables.",
+    "items": [
+      {
+        "iconKey": "code",
+        "title": "Desarrollo Full-Stack",
+        "description": "Desarrollo de aplicaciones web de extremo a extremo utilizando React, Next.js, Node.js y TypeScript.",
+        "features": ["Aplicaciones Web a Medida", "Desarrollo de API", "Diseño de Bases de Datos", "Optimización de Rendimiento"]
+      },
+      {
+        "iconKey": "mobile",
+        "title": "Desarrollo Móvil",
+        "description": "Aplicaciones móviles multiplataforma utilizando React Native para iOS y Android.",
+        "features": ["Aplicaciones React Native", "Soluciones Multiplataforma", "Rendimiento Nativo", "Despliegue en App Store"]
+      },
+      {
+        "iconKey": "database",
+        "title": "Soluciones de Bases de Datos",
+        "description": "Diseño, optimización y gestión de bases de datos para sistemas PostgreSQL y MySQL.",
+        "features": ["Diseño de Bases de Datos", "Optimización de Consultas", "Migración de Datos", "Ajuste de Rendimiento"]
+      },
+      {
+        "iconKey": "cogs",
+        "title": "Consultoría Técnica",
+        "description": "Revisión de arquitectura, auditorías de código y recomendaciones de stack tecnológico.",
+        "features": ["Revisión de Arquitectura", "Auditorías de Calidad de Código", "Planificación de Stack Tecnológico", "Implementación de Mejores Prácticas"]
+      },
+      {
+        "iconKey": "users",
+        "title": "Liderazgo de Equipos",
+        "description": "Liderazgo técnico, mentoría y gestión de proyectos ágiles para equipos de desarrollo.",
+        "features": ["Liderazgo de Equipos", "Mentoría Técnica", "Metodologías Ágiles", "Gestión de Proyectos"]
+      }
+    ],
+    "process": {
+      "title": "Mi Proceso",
+      "description": "Una metodología probada para entregar soluciones de software de alta calidad a tiempo y dentro del presupuesto.",
+      "steps": [
+        {
+          "step": "01",
+          "title": "Descubrimiento y Planificación",
+          "description": "Comprender sus necesidades de negocio y definir los requisitos del proyecto"
+        },
+        {
+          "step": "02",
+          "title": "Diseño y Arquitectura",
+          "description": "Crear soluciones escalables y arquitectura técnica"
+        },
+        {
+          "step": "03",
+          "title": "Desarrollo y Pruebas",
+          "description": "Construir aplicaciones robustas con pruebas exhaustivas"
+        },
+        {
+          "step": "04",
+          "title": "Despliegue y Soporte",
+          "description": "Despliegue sin interrupciones y soporte de mantenimiento continuo"
+        }
+      ]
+    },
+    "cta": {
+      "title": "¿Listo para Empezar tu Proyecto?",
+      "description": "Discutamos cómo puedo ayudar a dar vida a sus ideas con soluciones tecnológicas modernas y escalables.",
+      "button1": "Ponte en Contacto"
+    }
+  }
 } 
