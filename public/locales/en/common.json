@@ -117,5 +117,87 @@
       "description": "Let's discuss how I can help bring your ideas to life with modern, scalable technology solutions.",
       "button1": "Get In Touch"
     }
+  },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Let's work together",
+    "description": "I'm currently open to new opportunities and collaborations. Reach out via email or connect on social media!",
+    "social": {
+      "linkedin": "Visit Giovanni's LinkedIn profile (opens in new tab)",
+      "github": "Visit Giovanni's GitHub profile (opens in new tab)",
+      "email": "Send email to Giovanni",
+      "whatsapp": "Contact Giovanni on WhatsApp (opens in new tab)"
+    },
+    "form": {
+      "title": "Contact form",
+      "nameLabel": "Your Name",
+      "emailLabel": "Your Email",
+      "messageLabel": "Your Message",
+      "sendButton": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! I'll get back to you soon.",
+      "failure": "Something went wrong. Please try again or contact me directly.",
+      "errors": {
+        "name": "Name must be at least 2 characters long",
+        "email": "Please enter a valid email address",
+        "message": "Message must be at least 10 characters long"
+      }
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "groups": [
+      {
+        "category": "Frontend",
+        "skills": ["React", "Next.js", "React Native", "Tailwind CSS", "MUI", "Styled Components"],
+        "description": "Frontend development technologies and frameworks"
+      },
+      {
+        "category": "Backend",
+        "skills": ["Node.js", "Express.js", "Prisma", "Strapi", "JWT", "WebSockets"],
+        "description": "Backend development and server-side technologies"
+      },
+      {
+        "category": "Databases",
+        "skills": ["PostgreSQL", "MySQL"],
+        "description": "Database management systems"
+      },
+      {
+        "category": "Testing",
+        "skills": ["Jest", "Playwright", "Puppeteer", "Mocha", "Chai", "TDD", "BDD"],
+        "description": "Testing frameworks and methodologies"
+      },
+      {
+        "category": "Tools & DevOps",
+        "skills": ["Docker", "Git", "Azure Portal", "CI/CD", "Storybook"],
+        "description": "Development tools and DevOps practices"
+      },
+      {
+        "category": "Languages",
+        "skills": [
+          "Spanish (native)",
+          "English (advanced)",
+          "German (intermediate)",
+          "French & Italian (basic)"
+        ],
+        "description": "Spoken languages and proficiency levels"
+      },
+      {
+        "category": "Certification",
+        "skills": ["Microsoft AZ-204 – Azure Developer Associate (2023)"],
+        "description": "Professional certifications"
+      }
+    ]
+  },
+  "navigation": {
+    "items": [
+      { "label": "Home", "href": "#", "ariaLabel": "Go to home section" },
+      { "label": "About", "href": "#about", "ariaLabel": "Go to about section" },
+      { "label": "Experience", "href": "#experience", "ariaLabel": "Go to experience section" },
+      { "label": "Services", "href": "#services", "ariaLabel": "Go to services section" },
+      { "label": "Skills", "href": "#skills", "ariaLabel": "Go to skills section" },
+      { "label": "Contact", "href": "#contact", "ariaLabel": "Go to contact section" },
+      { "label": "Blog", "href": "/blog", "ariaLabel": "Go to blog page" }
+    ]
   }
 } 

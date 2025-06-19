@@ -4,8 +4,10 @@ import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion, useReducedMotion } from 'framer-motion';
 import { FaLinkedin, FaGithub, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
 export default function ContactSection() {
+  const { t } = useTranslation('common');
   const formRef = useRef<HTMLFormElement>(null);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState(false);
@@ -21,16 +23,16 @@ export default function ContactSection() {
     const message = formData.get('message') as string;
 
     if (!name || name.trim().length < 2) {
-      errors.user_name = 'Name must be at least 2 characters long';
+      errors.user_name = t('contact.form.errors.name');
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !emailRegex.test(email)) {
-      errors.user_email = 'Please enter a valid email address';
+      errors.user_email = t('contact.form.errors.email');
     }
 
     if (!message || message.trim().length < 10) {
-      errors.message = 'Message must be at least 10 characters long';
+      errors.message = t('contact.form.errors.message');
     }
 
     return errors;
@@ -45,7 +47,6 @@ export default function ContactSection() {
 
     if (Object.keys(validationErrors).length > 0) {
       setFormErrors(validationErrors);
-      // Focus on first error field
       const firstErrorField = Object.keys(validationErrors)[0];
       const errorElement = formRef.current.querySelector(`[name="${firstErrorField}"]`) as HTMLElement;
       errorElement?.focus();
@@ -98,7 +99,7 @@ export default function ContactSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        Contact Me
+        {t('contact.title')}
       </motion.h2>
 
       <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12">
@@ -110,9 +111,9 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="text-2xl font-semibold text-indigo-300">Let&apos;s work together</h3>
+          <h3 className="text-2xl font-semibold text-indigo-300">{t('contact.subtitle')}</h3>
           <p className="text-gray-300">
-            I&apos;m currently open to new opportunities and collaborations. Reach out via email or connect on social media!
+            {t('contact.description')}
           </p>
 
           <nav aria-label="Social media links">
@@ -123,7 +124,7 @@ export default function ContactSection() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="hover:text-indigo-400 transition focus:text-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-950 rounded"
-                  aria-label="Visit Giovanni's LinkedIn profile (opens in new tab)"
+                  aria-label={t('contact.social.linkedin')}
                 >
                   <FaLinkedin aria-hidden="true" />
                 </a>
@@ -134,7 +135,7 @@ export default function ContactSection() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="hover:text-indigo-400 transition focus:text-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-950 rounded"
-                  aria-label="Visit Giovanni's GitHub profile (opens in new tab)"
+                  aria-label={t('contact.social.github')}
                 >
                   <FaGithub aria-hidden="true" />
                 </a>
@@ -143,7 +144,7 @@ export default function ContactSection() {
                 <a 
                   href="mailto:davisxdpfr@gmail.com"
                   className="hover:text-indigo-400 transition focus:text-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-950 rounded"
-                  aria-label="Send email to Giovanni"
+                  aria-label={t('contact.social.email')}
                 >
                   <FaEnvelope aria-hidden="true" />
                 </a>
@@ -154,7 +155,7 @@ export default function ContactSection() {
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="hover:text-indigo-400 transition focus:text-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-950 rounded"
-                  aria-label="Contact Giovanni on WhatsApp (opens in new tab)"
+                  aria-label={t('contact.social.whatsapp')}
                 >
                   <FaWhatsapp aria-hidden="true" />
                 </a>
@@ -178,11 +179,11 @@ export default function ContactSection() {
             noValidate
             aria-labelledby="contact-form-heading"
           >
-            <h3 id="contact-form-heading" className="sr-only">Contact form</h3>
+            <h3 id="contact-form-heading" className="sr-only">{t('contact.form.title')}</h3>
             
             <div>
               <label htmlFor="user_name" className="block text-sm font-medium text-gray-300 mb-1">
-                Your Name <span className="text-red-400" aria-label="required">*</span>
+                {t('contact.form.nameLabel')} <span className="text-red-400" aria-label="required">*</span>
               </label>
               <input
                 type="text"
@@ -201,10 +202,10 @@ export default function ContactSection() {
                 </p>
               )}
             </div>
-
+            
             <div>
               <label htmlFor="user_email" className="block text-sm font-medium text-gray-300 mb-1">
-                Your Email <span className="text-red-400" aria-label="required">*</span>
+                {t('contact.form.emailLabel')} <span className="text-red-400" aria-label="required">*</span>
               </label>
               <input
                 type="email"
@@ -226,14 +227,14 @@ export default function ContactSection() {
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
-                Your Message <span className="text-red-400" aria-label="required">*</span>
+                {t('contact.form.messageLabel')} <span className="text-red-400" aria-label="required">*</span>
               </label>
               <textarea
                 id="message"
                 name="message"
-                rows={5}
                 required
-                className={`w-full px-4 py-2 bg-gray-900 border rounded text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-vertical ${
+                rows={4}
+                className={`w-full px-4 py-2 bg-gray-900 border rounded text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent ${
                   formErrors.message ? 'border-red-500' : 'border-gray-600'
                 }`}
                 aria-invalid={formErrors.message ? 'true' : 'false'}
@@ -249,51 +250,20 @@ export default function ContactSection() {
             <button
               type="submit"
               disabled={isLoading}
-              className={`w-full px-6 py-2 rounded text-white font-medium transition flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-800 ${
-                isLoading 
-                  ? 'bg-indigo-400 cursor-not-allowed' 
-                  : 'bg-indigo-500 hover:bg-indigo-600'
-              }`}
-              aria-describedby="submit-status"
+              className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-3 px-6 rounded-xl transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-800 disabled:bg-indigo-400 disabled:cursor-not-allowed"
             >
-              {isLoading && (
-                <svg 
-                  className="animate-spin h-4 w-4" 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  fill="none" 
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <circle 
-                    className="opacity-25" 
-                    cx="12" 
-                    cy="12" 
-                    r="10" 
-                    stroke="currentColor" 
-                    strokeWidth="4"
-                  />
-                  <path 
-                    className="opacity-75" 
-                    fill="currentColor" 
-                    d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                  />
-                </svg>
-              )}
-              {isLoading ? 'Sending...' : 'Send Message'}
+              {isLoading ? t('contact.form.sending') : t('contact.form.sendButton')}
             </button>
-
-            <div id="submit-status" aria-live="polite" aria-atomic="true">
-              {sent && (
-                <p className="text-green-400 text-center" role="status">
-                  Message sent successfully! I&apos;ll get back to you soon.
-                </p>
-              )}
-              {error && (
-                <p className="text-red-400 text-center" role="alert">
-                  Something went wrong. Please try again or contact me directly.
-                </p>
-              )}
-            </div>
+            {sent && (
+              <p className="mt-2 text-sm text-center text-green-400" role="status">
+                {t('contact.form.success')}
+              </p>
+            )}
+            {error && (
+              <p className="mt-2 text-sm text-center text-red-400" role="alert">
+                {t('contact.form.failure')}
+              </p>
+            )}
           </form>
         </motion.div>
       </div>

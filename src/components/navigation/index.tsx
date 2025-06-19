@@ -2,17 +2,12 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useRouter, usePathname } from 'next/navigation';
 
-const navItems = [
-  { label: 'Home', href: '#', ariaLabel: 'Go to home section' },
-  { label: 'About', href: '#about', ariaLabel: 'Go to about section' },
-  { label: 'Experience', href: '#experience', ariaLabel: 'Go to experience section' },
-  { label: 'Services', href: '#services', ariaLabel: 'Go to services section' },
-  { label: 'Skills', href: '#skills', ariaLabel: 'Go to skills section' },
-  { label: 'Contact', href: '#contact', ariaLabel: 'Go to contact section' },
-  { label: 'Blog', href: '/blog', ariaLabel: 'Go to blog page' }
-];
+interface NavItem {
+  label: string;
+  href: string;
+  ariaLabel: string;
+}
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,9 +16,9 @@ export default function Navigation() {
   const shouldReduceMotion = useReducedMotion();
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const hamburgerButtonRef = useRef<HTMLButtonElement>(null);
-  const { i18n } = useTranslation();
-  const router = useRouter();
-  const pathname = usePathname();
+  const { t, i18n } = useTranslation('common');
+
+  const navItems = t('navigation.items', { returnObjects: true }) as NavItem[];
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);

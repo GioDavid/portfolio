@@ -117,5 +117,87 @@
       "description": "Discutamos cómo puedo ayudar a dar vida a sus ideas con soluciones tecnológicas modernas y escalables.",
       "button1": "Ponte en Contacto"
     }
+  },
+  "contact": {
+    "title": "Contáctame",
+    "subtitle": "Trabajemos juntos",
+    "description": "Actualmente estoy abierto a nuevas oportunidades y colaboraciones. ¡Contáctame por correo electrónico o conéctate en las redes sociales!",
+    "social": {
+      "linkedin": "Visita el perfil de LinkedIn de Giovanni (se abre en una nueva pestaña)",
+      "github": "Visita el perfil de GitHub de Giovanni (se abre en una nueva pestaña)",
+      "email": "Enviar correo electrónico a Giovanni",
+      "whatsapp": "Contactar a Giovanni por WhatsApp (se abre en una nueva pestaña)"
+    },
+    "form": {
+      "title": "Formulario de contacto",
+      "nameLabel": "Tu Nombre",
+      "emailLabel": "Tu Correo Electrónico",
+      "messageLabel": "Tu Mensaje",
+      "sendButton": "Enviar Mensaje",
+      "sending": "Enviando...",
+      "success": "¡Mensaje enviado con éxito! Te responderé pronto.",
+      "failure": "Algo salió mal. Por favor, inténtalo de nuevo o contáctame directamente.",
+      "errors": {
+        "name": "El nombre debe tener al menos 2 caracteres",
+        "email": "Por favor, introduce una dirección de correo electrónico válida",
+        "message": "El mensaje debe tener al menos 10 caracteres"
+      }
+    }
+  },
+  "skills": {
+    "title": "Habilidades",
+    "groups": [
+      {
+        "category": "Frontend",
+        "skills": ["React", "Next.js", "React Native", "Tailwind CSS", "MUI", "Styled Components"],
+        "description": "Tecnologías y frameworks de desarrollo frontend"
+      },
+      {
+        "category": "Backend",
+        "skills": ["Node.js", "Express.js", "Prisma", "Strapi", "JWT", "WebSockets"],
+        "description": "Tecnologías de desarrollo backend y del lado del servidor"
+      },
+      {
+        "category": "Bases de Datos",
+        "skills": ["PostgreSQL", "MySQL"],
+        "description": "Sistemas de gestión de bases de datos"
+      },
+      {
+        "category": "Pruebas",
+        "skills": ["Jest", "Playwright", "Puppeteer", "Mocha", "Chai", "TDD", "BDD"],
+        "description": "Frameworks y metodologías de pruebas"
+      },
+      {
+        "category": "Herramientas y DevOps",
+        "skills": ["Docker", "Git", "Azure Portal", "CI/CD", "Storybook"],
+        "description": "Herramientas de desarrollo y prácticas de DevOps"
+      },
+      {
+        "category": "Idiomas",
+        "skills": [
+          "Español (nativo)",
+          "Inglés (avanzado)",
+          "Alemán (intermedio)",
+          "Francés e Italiano (básico)"
+        ],
+        "description": "Idiomas hablados y niveles de competencia"
+      },
+      {
+        "category": "Certificación",
+        "skills": ["Microsoft AZ-204 – Azure Developer Associate (2023)"],
+        "description": "Certificaciones profesionales"
+      }
+    ]
+  },
+  "navigation": {
+    "items": [
+      { "label": "Inicio", "href": "#", "ariaLabel": "Ir a la sección de inicio" },
+      { "label": "Sobre Mí", "href": "#about", "ariaLabel": "Ir a la sección sobre mí" },
+      { "label": "Experiencia", "href": "#experience", "ariaLabel": "Ir a la sección de experiencia" },
+      { "label": "Servicios", "href": "#services", "ariaLabel": "Ir a la sección de servicios" },
+      { "label": "Habilidades", "href": "#skills", "ariaLabel": "Ir a la sección de habilidades" },
+      { "label": "Contacto", "href": "#contact", "ariaLabel": "Ir a la sección de contacto" },
+      { "label": "Blog", "href": "/blog", "ariaLabel": "Ir a la página del blog" }
+    ]
   }
 } 

@@ -17,68 +17,42 @@ import {
   SiStorybook,
   SiDatev
 } from 'react-icons/si';
+import { useTranslation } from 'react-i18next';
 
 const iconMap: { [key: string]: JSX.Element } = {
-  React: <SiReact className="text-cyan-400" aria-hidden="true" />,
+  'React': <SiReact className="text-cyan-400" aria-hidden="true" />,
   'Next.js': <SiNextdotjs className="text-white" aria-hidden="true" />,
+  'React Native': <SiReact className="text-cyan-400" aria-hidden="true" />,
   'Tailwind CSS': <SiTailwindcss className="text-sky-400" aria-hidden="true" />,
-  MUI: <SiMui className="text-blue-500" aria-hidden="true" />,
+  'MUI': <SiMui className="text-blue-500" aria-hidden="true" />,
   'Styled Components': <SiStyledcomponents className="text-pink-300" aria-hidden="true" />,
   'Node.js': <SiNodedotjs className="text-green-500" aria-hidden="true" />,
   'Express.js': <SiExpress className="text-gray-200" aria-hidden="true" />,
-  PostgreSQL: <SiPostgresql className="text-blue-400" aria-hidden="true" />,
-  MySQL: <SiMysql className="text-blue-300" aria-hidden="true" />,
-  Jest: <SiJest className="text-rose-400" aria-hidden="true" />,
-  Docker: <SiDocker className="text-blue-400" aria-hidden="true" />,
-  Git: <SiGit className="text-orange-500" aria-hidden="true" />,
+  'Prisma': <SiDatev className="text-gray-300" aria-hidden="true" />,
+  'Strapi': <SiDatev className="text-purple-500" aria-hidden="true" />,
+  'PostgreSQL': <SiPostgresql className="text-blue-400" aria-hidden="true" />,
+  'MySQL': <SiMysql className="text-blue-300" aria-hidden="true" />,
+  'Jest': <SiJest className="text-rose-400" aria-hidden="true" />,
+  'Playwright': <SiDatev className="text-green-400" aria-hidden="true" />,
+  'Puppeteer': <SiDatev className="text-blue-600" aria-hidden="true" />,
+  'Mocha': <SiDatev className="text-yellow-600" aria-hidden="true" />,
+  'Chai': <SiDatev className="text-red-400" aria-hidden="true" />,
+  'Docker': <SiDocker className="text-blue-400" aria-hidden="true" />,
+  'Git': <SiGit className="text-orange-500" aria-hidden="true" />,
   'Azure Portal': <SiDatev className="text-blue-500" aria-hidden="true" />,
-  Storybook: <SiStorybook className="text-pink-400" aria-hidden="true" />,
+  'Storybook': <SiStorybook className="text-pink-400" aria-hidden="true" />,
+  'Microsoft AZ-204 – Azure Developer Associate (2023)': <SiDatev className="text-blue-500" aria-hidden="true" />,
 };
 
-const skillGroups = [
-  {
-    category: 'Frontend',
-    skills: ['React', 'Next.js', 'React Native', 'Tailwind CSS', 'MUI', 'Styled Components'],
-    description: 'Frontend development technologies and frameworks'
-  },
-  {
-    category: 'Backend',
-    skills: ['Node.js', 'Express.js', 'Prisma', 'Strapi', 'JWT', 'WebSockets'],
-    description: 'Backend development and server-side technologies'
-  },
-  {
-    category: 'Databases',
-    skills: ['PostgreSQL', 'MySQL'],
-    description: 'Database management systems'
-  },
-  {
-    category: 'Testing',
-    skills: ['Jest', 'Playwright', 'Puppeteer', 'Mocha', 'Chai', 'TDD', 'BDD'],
-    description: 'Testing frameworks and methodologies'
-  },
-  {
-    category: 'Tools & DevOps',
-    skills: ['Docker', 'Git', 'Azure Portal', 'CI/CD', 'Storybook'],
-    description: 'Development tools and DevOps practices'
-  },
-  {
-    category: 'Languages',
-    skills: [
-      'Spanish (native)',
-      'English (advanced)',
-      'German (intermediate)',
-      'French & Italian (basic)',
-    ],
-    description: 'Spoken languages and proficiency levels'
-  },
-  {
-    category: 'Certification',
-    skills: ['Microsoft AZ-204 – Azure Developer Associate (2023)'],
-    description: 'Professional certifications'
-  },
-];
+interface SkillGroup {
+  category: string;
+  skills: string[];
+  description: string;
+}
 
 export default function SkillsSection() {
+  const { t } = useTranslation('common');
+  const skillGroups = t('skills.groups', { returnObjects: true }) as SkillGroup[];
   const shouldReduceMotion = useReducedMotion();
 
   const motionProps = shouldReduceMotion 
@@ -99,11 +73,11 @@ export default function SkillsSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        Skills
+        {t('skills.title')}
       </motion.h2>
 
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-        {skillGroups.map((group, i) => (
+        {Array.isArray(skillGroups) && skillGroups.map((group, i) => (
           <motion.div
             key={group.category}
             {...motionProps}
