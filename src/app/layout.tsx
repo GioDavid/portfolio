@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import I18nProvider from "./I18nProvider";
@@ -16,7 +16,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "David Proaño - Full Stack Developer",
   description: "Portfolio of David Proaño, Full Stack Developer specializing in modern web technologies, React, Next.js, and Node.js",
-  viewport: "width=device-width, initial-scale=1",
   keywords: "David Proaño, Full Stack Developer, React, Next.js, Node.js, TypeScript, Portfolio",
   authors: [{ name: "David Proaño" }],
   openGraph: {
@@ -26,6 +25,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  colorScheme: "dark",
+  themeColor: "#1e1b4b",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,10 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        <meta name="color-scheme" content="dark" />
-        <meta name="theme-color" content="#1e1b4b" />
-      </head>
+      <head />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
